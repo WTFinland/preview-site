@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="ad.size" content="width=300,height=431">
+    <title>300x431</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script type="text/javascript">
+        // TÄHÄN CLICKTAGI
+        var clickTag = "https://www.google.com";
+    </script>
+
+    <style>
+        /* TÄHÄN STYLES */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #volvo-container {
+            width: 300px;
+            height: 431px;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .copy1, .copy2, .copy3, .img1, .logo, .cta {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="volvo-container">
+      <a href="javascript:window.open(window.clickTag)">
+            <img src="img1.jpg" alt="" class="img1">
+            <img src="copy1.png" alt="" class="copy1">
+            <img src="copy2.png" alt="" class="copy2">
+            <img src="copy3.png" alt="" class="copy3">
+            <img src="cta.png" alt="" class="cta">
+            <img src="logo.png" alt="" class="logo">
+            </a>
+
+    </div>
+
+    <script>
+
+        var tlGen = new TimelineMax({});
+        var tl1 = new TimelineMax({repeat:0});
+        var tl2 = new TimelineMax({paused:true});
+
+        tl1
+        .from('.copy1', 0.8, {opacity:0 }, "-=0")
+        .from('.copy2', 0.8, {opacity:0 }, "-=0.1")
+        .from('.copy3', 0.8, {opacity:0 }, "-=0.1")
+        .from('.cta', 0.8, {scaleX:0, ease:Back.easeOut}, "-=0")
+
+        tl2
+        .to('.copy2', 0.8, {opacity:1 }, "-=0.5")
+        .to('.cta', 0.8, {scaleX:1, ease:Power4.easeOut}, "-=0.5")
+
+        tl1.eventCallback("onComplete", function() {
+            tl2.play(0);
+        });
+
+    </script>
+</body>
+</html>
