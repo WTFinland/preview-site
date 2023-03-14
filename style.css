@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+
+h2 {
+    padding-left: 10px;
+    padding-top: 50px;
+}
+
+.previews {
+    margin: auto;
+    width: 90%;
+}
+
+iframe {
+    padding: 10px;
+}
